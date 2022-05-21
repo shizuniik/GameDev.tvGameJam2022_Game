@@ -70,3 +70,11 @@ crashlytics-build.properties
 # Temporary auto-generated Android Assets
 **/[Aa]ssets/[Ss]treamingAssets/aa.meta
 **/[Aa]ssets/[Ss]treamingAssets/aa/*
+GameDev.tvJam_Project/Assets/Scenes/SampleScene.unity
+GameDev.tvJam_Project/Assets/Readme.asset
+GameDev.tvJam_Project/Assets/Readme.asset.meta
+GameDev.tvJam_Project/Assets/Scenes/SampleScene.unity.meta
+GameDev.tvJam_Project/Assets/Settings/SampleSceneProfile.asset
+GameDev.tvJam_Project/Assets/Settings/SampleSceneProfile.asset.meta
+GameDev.tvJam_Project/Assets/TutorialInfo.meta
+GameDev.tvJam_Project/Assets/TutorialInfo/*
