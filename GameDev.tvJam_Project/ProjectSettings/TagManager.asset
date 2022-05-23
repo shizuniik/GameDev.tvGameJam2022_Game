@@ -11,6 +11,7 @@ TagManager:
   - Level2
   - Level1
   - Floor
+  - Obs1
   layers:
   - Default
   - TransparentFX
@@ -18,7 +19,7 @@ TagManager:
   - 
   - Water
   - UI
-  - 
+  - Obstacle
   - 
   - 
   - 

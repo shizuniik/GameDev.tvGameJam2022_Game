@@ -8,6 +8,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float jumpForce;
     [SerializeField] float speedForward;
 
+    [SerializeField] Transform nextPos; 
     private int damage = 1; // REVISAR 
     public int Life { get; private set; }
     private bool onFloor; 
@@ -35,11 +36,30 @@ public class PlayerController : MonoBehaviour
     {
         //transform.Translate(Vector3.forward * speedForward * Time.deltaTime);
         //transform.Translate(Input.GetAxis("Vertical") * Vector3.forward * Time.deltaTime * speedV);
-        if(Input.GetButtonDown("Jump") && onFloor)
+        /*if(Input.GetButtonDown("Jump") && onFloor)
         {
             transform.GetComponent<Rigidbody>().AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
             onFloor = false; 
+        }*/
+
+        Debug.Log("Distance: " + Vector3.Distance(transform.position, nextPos.position));
+        if (Input.GetMouseButtonDown(0))
+        {
+            transform.Translate((nextPos.position - transform.position) * speedForward * Time.deltaTime);
+            Debug.Log("Distance after: " + Vector3.Distance(transform.position, nextPos.position));
+
+            if (GameObject.FindGameObjectWithTag("Obs1").transform.position.x >= -12 &&
+            GameObject.FindGameObjectWithTag("Obs1").transform.position.x <= -11)
+            {
+                
+                
+            }
+            else
+            {
+                Debug.Log("Choca obs"); 
+            }
         }
+    
     }
 
     private void OnCollisionEnter(Collision collision)

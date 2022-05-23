@@ -17,7 +17,10 @@ public class TheDeathScript : MonoBehaviour
     {
         transform.Translate(Vector3.forward * speed * Time.deltaTime); 
 
-       
+       if(transform.position.z > Bounds.zMax)
+        {
+            Destroy(gameObject); 
+        }
     }
 
     
