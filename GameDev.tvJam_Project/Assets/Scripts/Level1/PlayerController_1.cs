@@ -19,24 +19,31 @@ public class PlayerController_1 : MonoBehaviour
         lastPos = startPos.position; 
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
         Movement();
+    }
+
+    private void Update()
+    {
         RestartLastPosition(); 
+        //Jump(); 
+        BackwardLimit(); 
     }
 
     private void Movement()
     {
-        transform.Translate(Input.GetAxis("Horizontal") * Vector3.right * Time.deltaTime * speedH);
-        transform.Translate(Input.GetAxis("Vertical") * Vector3.forward * Time.deltaTime * speedV);
+        transform.GetComponent<Rigidbody>().AddForce(Input.GetAxis("Vertical") * Vector3.forward * speedV * Time.deltaTime, ForceMode.VelocityChange);
+        transform.GetComponent<Rigidbody>().AddForce(Input.GetAxis("Horizontal") * Vector3.right * speedH * Time.deltaTime, ForceMode.VelocityChange);
+    }
 
-        if(Input.GetButtonDown("Jump") && onFloor)
+    private void Jump()
+    {
+        if (Input.GetButtonDown("Jump") && onFloor)
         {
             transform.GetComponent<Rigidbody>().AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
-            onFloor = false; 
+            onFloor = false;
         }
-
-        BackwardLimit(); 
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -45,20 +52,36 @@ public class PlayerController_1 : MonoBehaviour
         {
             onFloor = true;
         }
+
+        Debug.Log("choca" + collision.transform.name); 
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        lastPos = other.transform.position; 
+        if (transform.position.y > Bounds.yMin)
+        {
+            lastPos = other.transform.position;
+        }
+
+        if(other.CompareTag("Goal"))
+        {
+            GameManager.Instance.NextScene(); 
+        }
     }
 
     private void RestartLastPosition()
     {
-        if(transform.position.y < Bounds.yMin)
-        {
-            Vector3 pos = new Vector3(lastPos.x, lastPos.y + 2, lastPos.z);
-            transform.position = pos; 
-        }
+          if(transform.position.y < Bounds.yMin)
+          {
+              Vector3 pos = new Vector3(lastPos.x, 0.5f, lastPos.z);
+              transform.position = pos; 
+          }
+          else if(transform.position.y > 1.5f)
+          {
+              Vector3 pos = new Vector3(transform.position.x, 0.5f, transform.position.z);
+              transform.position = pos;
+          }
+        Debug.Log("pos: " + transform.position.y);
     }
 
     private void BackwardLimit()
