@@ -4,14 +4,11 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Tunnel
-  - Obstacle
   - Goal
-  - Level3
-  - Level2
-  - Level1
   - Floor
-  - Obs1
+  - Obstacle
+  - Middle
+  - Start
   layers:
   - Default
   - TransparentFX
