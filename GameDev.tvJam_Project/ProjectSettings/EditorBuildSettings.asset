@@ -5,13 +5,19 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
-    path: Assets/Scenes/REVISAR/SampleScene.unity
-    guid: 99c9720ab356a0642a771bea13969a05
   - enabled: 1
     path: Assets/Scenes/Level1.unity
     guid: d40e6601482891a44b7afa6380deb3aa
   - enabled: 1
+    path: Assets/Scenes/Level3.unity
+    guid: e76dc0f571188b4419531761df84a95d
+  - enabled: 1
     path: Assets/Scenes/Level2.unity
+    guid: 6a3b737d15b0d3b4abae2cf02467e874
+  - enabled: 0
+    path: Assets/Scenes/Level2_borrar.unity
     guid: 3ab34f9ee3a7ee147a22767b51c3def9
+  - enabled: 0
+    path: Assets/Scenes/REVISAR/SampleScene.unity
+    guid: 99c9720ab356a0642a771bea13969a05
   m_configObjects: {}

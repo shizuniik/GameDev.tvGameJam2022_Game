@@ -7,8 +7,7 @@ TagManager:
   - Goal
   - Floor
   - Obstacle
-  - Middle
-  - Start
+  - Powerup
   layers:
   - Default
   - TransparentFX

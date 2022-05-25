@@ -31,11 +31,6 @@ public class GameManager : MonoBehaviour
         DontDestroyOnLoad(gameObject); 
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     public void NextScene()
     {
@@ -43,6 +38,11 @@ public class GameManager : MonoBehaviour
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1); 
         }
+    }
+
+    public void AddPoints(int points)
+    {
+        Score += points; 
     }
     
 }
