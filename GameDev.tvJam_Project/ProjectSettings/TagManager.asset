@@ -5,9 +5,9 @@ TagManager:
   serializedVersion: 2
   tags:
   - Goal
-  - Floor
   - Obstacle
   - Powerup
+  - Start
   layers:
   - Default
   - TransparentFX
