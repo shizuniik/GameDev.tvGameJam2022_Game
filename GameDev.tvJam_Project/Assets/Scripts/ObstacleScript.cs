@@ -4,7 +4,23 @@ using UnityEngine;
 
 public class ObstacleScript : MonoBehaviour
 {
-    [SerializeField] float force; 
+    [SerializeField] float force;
+    [SerializeField] float speed;
+
+    private void Update()
+    {
+        Movement();
+
+        if (transform.position.x < Bounds.xMin)
+        {
+            Destroy(gameObject);
+        }
+    }
+
+    private void Movement()
+    {
+        transform.Translate(Vector3.left * speed * Time.deltaTime);
+    }
 
     private void OnCollisionEnter(Collision collision)
     {
