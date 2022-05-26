@@ -5,7 +5,7 @@ public static class Bounds
     public const float level2Score = 150;
     public const float level3Score = 300;
 
-    public const float xMin = -20;
+    public const float xMin = -30;
     public const float xMax = 20;
     public const float yMin = 1;
     public const float yMax = 11;

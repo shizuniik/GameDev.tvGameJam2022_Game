@@ -111,4 +111,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   points: 25
-  speed: 1
+  speedLevel:
+  - 1
+  - 3
+  - 5

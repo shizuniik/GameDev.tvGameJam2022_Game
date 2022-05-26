@@ -2,10 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Powerup : MonoBehaviour
+public class PowerupScript : MonoBehaviour
 {
     [SerializeField] int points;
-    [SerializeField] float speed; 
+    [SerializeField] List<float> speedLevel; 
 
     private void Start()
     {
@@ -24,6 +24,7 @@ public class Powerup : MonoBehaviour
 
     private void Movement()
     {
+        float speed = speedLevel[GameManager.Level - 1];
         transform.Translate(Vector3.left * speed * Time.deltaTime);
     }
 

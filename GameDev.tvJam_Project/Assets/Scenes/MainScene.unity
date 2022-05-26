@@ -271,15 +271,39 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pools:
-  - tag: 
-    prefab: {fileID: 0}
-    size: 0
-  - tag: 
-    prefab: {fileID: 0}
-    size: 0
-  - tag: 
-    prefab: {fileID: 0}
-    size: 0
+  - tag: Powerup1
+    prefab: {fileID: 4882292905678075307, guid: 1f201bd765cd0ed44a0afb52186435c3,
+      type: 3}
+    size: 5
+  - tag: Obstacle1
+    prefab: {fileID: 6134327181441961250, guid: 4c024ca646623d94f8d7fdd8ce177ccf,
+      type: 3}
+    size: 5
+  - tag: Enemy1
+    prefab: {fileID: 276391438110445809, guid: 1ae8d56b3dc97fc40b27ce2a970ebb55, type: 3}
+    size: 5
+  - tag: Powerup2
+    prefab: {fileID: 4882292905678075307, guid: 1f201bd765cd0ed44a0afb52186435c3,
+      type: 3}
+    size: 5
+  - tag: Obstacle2
+    prefab: {fileID: 6134327181441961250, guid: 4c024ca646623d94f8d7fdd8ce177ccf,
+      type: 3}
+    size: 5
+  - tag: Enemy2
+    prefab: {fileID: 276391438110445809, guid: 1ae8d56b3dc97fc40b27ce2a970ebb55, type: 3}
+    size: 5
+  - tag: Powerup3
+    prefab: {fileID: 4882292905678075307, guid: 1f201bd765cd0ed44a0afb52186435c3,
+      type: 3}
+    size: 5
+  - tag: Obstacle3
+    prefab: {fileID: 6134327181441961250, guid: 4c024ca646623d94f8d7fdd8ce177ccf,
+      type: 3}
+    size: 5
+  - tag: Enemy3
+    prefab: {fileID: 276391438110445809, guid: 1ae8d56b3dc97fc40b27ce2a970ebb55, type: 3}
+    size: 5
 --- !u!4 &147812407
 Transform:
   m_ObjectHideFlags: 0
@@ -796,9 +820,9 @@ MonoBehaviour:
   powerupSpawnRate: 10
   obstacleSpawnRate: 20
   enemySpawnRate: 25
-  powerupTime: 2
-  obstacleTime: 6
-  enemyTime: 8
+  powerupTime: 1
+  obstacleTime: 5
+  enemyTime: 7
 --- !u!4 &1002882936
 Transform:
   m_ObjectHideFlags: 0
@@ -1270,7 +1294,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1613207330}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: 0}
+  m_LocalPosition: {x: 0, y: 10, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:

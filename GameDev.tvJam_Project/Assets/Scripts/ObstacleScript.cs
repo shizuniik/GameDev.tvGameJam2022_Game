@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ObstacleScript : MonoBehaviour
 {
-    [SerializeField] float speed;
+    [SerializeField] List<float> speedLevel;
 
     private void Update()
     {
@@ -18,6 +18,7 @@ public class ObstacleScript : MonoBehaviour
 
     private void Movement()
     {
+        float speed = speedLevel[GameManager.Level - 1];
         transform.Translate(Vector3.left * speed * Time.deltaTime);
     }
 
