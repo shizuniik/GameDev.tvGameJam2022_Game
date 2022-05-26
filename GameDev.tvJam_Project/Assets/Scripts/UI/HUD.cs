@@ -29,4 +29,10 @@ public class HUD : MonoBehaviour
     {
         scoreText.text = GameManager.Score.ToString();
     }
+
+    public void PauseGame()
+    {
+        GameManager.GamePaused = !GameManager.GamePaused;
+        Time.timeScale = GameManager.GamePaused ? 0 : 1; 
+    }
 }

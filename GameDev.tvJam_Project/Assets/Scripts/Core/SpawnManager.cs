@@ -35,6 +35,13 @@ public class SpawnManager : MonoBehaviour
         InvokeRepeating("SpawnEnemies", enemyTime, enemySpawnRate);
     }
 
+    public void CancelSpawn()
+    {
+        CancelInvoke("SpawnPowerups");
+        CancelInvoke("SpawnObstacles");
+        CancelInvoke("SpawnEnemies");
+    }
+
     public void ChangeSpawnRate(int level)
     {
         switch(level)

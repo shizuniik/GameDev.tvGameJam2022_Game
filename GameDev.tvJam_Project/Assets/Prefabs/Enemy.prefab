@@ -112,6 +112,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speedLevel:
-  - 1
+  - 2
   - 3
   - 5

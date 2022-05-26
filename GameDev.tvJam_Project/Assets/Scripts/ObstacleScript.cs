@@ -5,6 +5,7 @@ using UnityEngine;
 public class ObstacleScript : MonoBehaviour
 {
     [SerializeField] List<float> speedLevel;
+    [SerializeField] int damage; 
 
     private void Update()
     {
@@ -27,6 +28,7 @@ public class ObstacleScript : MonoBehaviour
         if (collision.transform.CompareTag("Player"))
         {
             Debug.Log("choca obstáculo");
+            GameManager.Instance.AddPoints(-damage); 
         }
     }
 }

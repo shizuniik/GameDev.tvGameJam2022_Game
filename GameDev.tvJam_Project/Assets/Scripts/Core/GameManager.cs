@@ -11,7 +11,10 @@ public class GameManager : MonoBehaviour
 
     public static int Score { get; set; }
     public static bool GameEnded;
-    public static bool GameOver; 
+    public static bool GameOver;
+    public static bool GameStarted;
+    public static bool GamePaused; 
+
     public static int Level { get; set; }
     public static GameManager Instance;
 
@@ -76,7 +79,17 @@ public class GameManager : MonoBehaviour
         if(Score >= maxScoreLevel3)
         {
             GameEnded = true;
+            SpawnManager.Instance.CancelSpawn(); 
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 2); 
             Debug.Log("WinGame"); 
         }
+    }
+
+    public void GameOverScene()
+    {
+        GameOver = true;
+        SpawnManager.Instance.CancelSpawn();
+        SceneManager.LoadScene(2);
+        Debug.Log("GameOver");
     }
 }

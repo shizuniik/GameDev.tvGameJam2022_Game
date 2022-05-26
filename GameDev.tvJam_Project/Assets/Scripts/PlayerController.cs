@@ -30,7 +30,10 @@ public class PlayerController : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-
+        if(collision.transform.CompareTag("Enemy"))
+        {
+            GameManager.Instance.GameOverScene(); 
+        }
     }
 
     private void PositionLimits()
