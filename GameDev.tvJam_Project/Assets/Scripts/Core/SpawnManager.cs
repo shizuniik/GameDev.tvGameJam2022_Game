@@ -19,7 +19,7 @@ public class SpawnManager : MonoBehaviour
 
     private void Start()
     {
-        if(Instance == null)
+        if (Instance == null)
         {
             Instance = this; 
         }
@@ -28,11 +28,9 @@ public class SpawnManager : MonoBehaviour
             Destroy(gameObject);
             return; 
         }
-        DontDestroyOnLoad(gameObject); 
+        DontDestroyOnLoad(gameObject);
 
-        InvokeRepeating("SpawnPowerups", powerupTime, powerupSpawnRate);
-        InvokeRepeating("SpawnObstacles", obstacleTime, obstacleSpawnRate);
-        InvokeRepeating("SpawnEnemies", enemyTime, enemySpawnRate);
+        ChangeSpawnRate(GameManager.Level); 
     }
 
     public void CancelSpawn()
@@ -46,19 +44,21 @@ public class SpawnManager : MonoBehaviour
     {
         switch(level)
         {
+            case 1:
+                InvokeRepeating("SpawnPowerups", powerupTime, powerupSpawnRate);
+                InvokeRepeating("SpawnObstacles", obstacleTime, obstacleSpawnRate);
+                InvokeRepeating("SpawnEnemies", enemyTime, enemySpawnRate);
+                break;
+
             case 2:
-                CancelInvoke("SpawnPowerups");
-                CancelInvoke("SpawnObstacles");
-                CancelInvoke("SpawnEnemies"); 
+                CancelSpawn(); 
 
                 InvokeRepeating("SpawnPowerups", powerupTime, powerupSpawnRate * 0.4f);
                 InvokeRepeating("SpawnObstacles", obstacleTime, obstacleSpawnRate * 0.4f);
                 InvokeRepeating("SpawnEnemies", enemyTime, enemySpawnRate * 0.4f);
                 break;
             case 3:
-                CancelInvoke("SpawnPowerups");
-                CancelInvoke("SpawnObstacles");
-                CancelInvoke("SpawnEnemies");
+                CancelSpawn();
 
                 InvokeRepeating("SpawnPowerups", powerupTime, powerupSpawnRate * 0.2f);
                 InvokeRepeating("SpawnObstacles", obstacleTime, obstacleSpawnRate * 0.2f);
@@ -68,26 +68,6 @@ public class SpawnManager : MonoBehaviour
                 break; 
         }
     }
-
-    /* public void Spawn()
-    {
-        int selec = Random.Range(0, 2);
-
-        switch (selec)
-        {
-            case 0:
-                SpawnPowerups();
-                break;
-            case 1:
-                SpawnEnemies(); 
-                break;
-            case 2:
-                break;
-            default:
-                SpawnObstacles(); 
-                break;
-        }
-    } */
 
     public void SpawnEnemies()
     {

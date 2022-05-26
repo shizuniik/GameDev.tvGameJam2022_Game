@@ -17,7 +17,8 @@ public class UIScript : MonoBehaviour
         GameManager.GameOver = false;
         GameManager.Score = 0;
         GameManager.Level = 1;
-        GameManager.GameStarted = true; 
+        GameManager.GameStarted = true;
+        SpawnManager.Instance.ChangeSpawnRate(GameManager.Level); 
 
         SceneManager.LoadScene(1);
     }

@@ -87,9 +87,9 @@ public class GameManager : MonoBehaviour
 
     public void GameOverScene()
     {
+        Debug.Log("GameOver");
         GameOver = true;
         SpawnManager.Instance.CancelSpawn();
         SceneManager.LoadScene(2);
-        Debug.Log("GameOver");
     }
 }

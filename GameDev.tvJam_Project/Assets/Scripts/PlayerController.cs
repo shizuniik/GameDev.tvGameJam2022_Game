@@ -42,6 +42,9 @@ public class PlayerController : MonoBehaviour
             transform.position = new Vector3(transform.position.x, Bounds.yMin, transform.position.z);
 
         if (transform.position.y > Bounds.yMax)
+        {
             transform.position = new Vector3(transform.position.x, Bounds.yMax, transform.position.z);
+            playerRb.AddForce(Vector3.down * force, ForceMode.Impulse);
+        }
     }
 }
