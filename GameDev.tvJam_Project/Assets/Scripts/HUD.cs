@@ -1,18 +1,32 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro; 
 
 public class HUD : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] TextMeshProUGUI levelText;
+    [SerializeField] TextMeshProUGUI scoreText; 
+
+    private void OnEnable()
     {
-        
+        GameManager.OnChangeScore += ScoreTextUpdate;
+        GameManager.OnChangeLevel += LevelTextUpdate;
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnDisable()
     {
-        
+        GameManager.OnChangeScore -= ScoreTextUpdate;
+        GameManager.OnChangeLevel -= LevelTextUpdate; 
+    }
+
+    public void LevelTextUpdate()
+    {
+        levelText.text = GameManager.Level.ToString();
+    }
+
+    public void ScoreTextUpdate()
+    {
+        scoreText.text = GameManager.Score.ToString();
     }
 }

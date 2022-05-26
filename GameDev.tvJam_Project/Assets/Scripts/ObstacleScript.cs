@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class ObstacleScript : MonoBehaviour
 {
-    [SerializeField] float force;
     [SerializeField] float speed;
 
     private void Update()
@@ -27,7 +26,6 @@ public class ObstacleScript : MonoBehaviour
         if (collision.transform.CompareTag("Player"))
         {
             Debug.Log("choca obstáculo");
-            collision.transform.GetComponent<Rigidbody>().AddForce((collision.transform.position - transform.position) * force, ForceMode.Impulse);
         }
     }
 }

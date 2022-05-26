@@ -5,15 +5,24 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
+    [SerializeField] int maxScoreLevel1;
+    [SerializeField] int maxScoreLevel2;
+    [SerializeField] int maxScoreLevel3;
+
     public static int Score { get; set; }
     public static bool GameEnded;
     public static bool GameOver; 
     public static int Level { get; set; }
     public static GameManager Instance;
 
+    public delegate void ChangeScore(); 
+    public static event ChangeScore OnChangeScore;
+    public static event ChangeScore OnChangeLevel;
+
     private void Awake()
     {
-        Level = 1; 
+        Level = 1;
+        Score = 0; 
     }
 
     // Start is called before the first frame update
@@ -25,9 +34,9 @@ public class GameManager : MonoBehaviour
         }
         else
         {
-            Destroy(gameObject); 
+            Destroy(gameObject);
+            return; 
         }
-
         DontDestroyOnLoad(gameObject); 
     }
 
@@ -42,7 +51,32 @@ public class GameManager : MonoBehaviour
 
     public void AddPoints(int points)
     {
-        Score += points; 
+        Score += points;
+
+        OnChangeScore?.Invoke(); 
+
+        CheckLevel();
+        CheckWinGame(); 
     }
     
+    private void CheckLevel()
+    {
+        if (Score > maxScoreLevel1 && Score <= maxScoreLevel2 && Level != 2||
+           Score > maxScoreLevel2 && Score <= maxScoreLevel3 && Level != 3)
+        {
+            Level += 1;
+            OnChangeLevel?.Invoke();
+
+            SpawnManager.Instance.ChangeSpawnRate(Level); 
+        }
+    }
+
+    private void CheckWinGame()
+    {
+        if(Score >= maxScoreLevel3)
+        {
+            GameEnded = true;
+            Debug.Log("WinGame"); 
+        }
+    }
 }

@@ -30,7 +30,7 @@ public class GhostController : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        
+
     }
 
     private void PositionLimits()
