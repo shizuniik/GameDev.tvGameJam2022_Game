@@ -56,8 +56,9 @@ public class GameManager : MonoBehaviour
     {
         Score += points;
 
-        OnChangeScore?.Invoke(); 
+        OnChangeScore?.Invoke();
 
+        CheckGameOver(); 
         CheckLevel();
         CheckWinGame(); 
     }
@@ -71,6 +72,14 @@ public class GameManager : MonoBehaviour
             OnChangeLevel?.Invoke();
 
             SpawnManager.Instance.ChangeSpawnRate(Level); 
+        }
+    }
+
+    private void CheckGameOver()
+    {
+        if(Score < 0)
+        {
+            GameOverScene(); 
         }
     }
 

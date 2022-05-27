@@ -22,7 +22,7 @@ public class HUD : MonoBehaviour
 
     public void LevelTextUpdate()
     {
-        levelText.text = GameManager.Level.ToString();
+        levelText.text = GameManager.Level.ToString() + "/3";
     }
 
     public void ScoreTextUpdate()

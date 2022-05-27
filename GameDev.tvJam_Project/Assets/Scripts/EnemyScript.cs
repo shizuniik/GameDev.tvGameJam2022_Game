@@ -1,11 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro; 
 
 public class EnemyScript : MonoBehaviour
 {
     [SerializeField] List<float> speedLevel;
-
+    [SerializeField] int damage;
     private void Update()
     {
         Movement();
@@ -27,7 +28,7 @@ public class EnemyScript : MonoBehaviour
         if (collision.transform.CompareTag("Player"))
         {
             Debug.Log("choca enemy");
-            
+            GameManager.Instance.AddPoints(-damage);
         }
     }
 }

@@ -32,7 +32,7 @@ public class PlayerController : MonoBehaviour
     {
         if(collision.transform.CompareTag("Enemy"))
         {
-            GameManager.Instance.GameOverScene(); 
+           // GameManager.Instance.GameOverScene(); 
         }
     }
 
