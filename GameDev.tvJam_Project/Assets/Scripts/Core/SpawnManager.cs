@@ -94,13 +94,13 @@ public class SpawnManager : MonoBehaviour
         if (fixedY)
         {
             int randomInt = Random.Range(0, 1);
-            float y = randomInt == 0 ? Bounds.yMin : Bounds.yMax;
+            float y = randomInt == 0 ? Bounds.yMin: Bounds.yMax;
 
-            pos = new Vector3(Bounds.xMax, y, Bounds.zMin); 
+            pos = new Vector3(Bounds.xMax, y - 0.5f, Bounds.zMin); 
         }
         else
         {
-            pos = new Vector3(Bounds.xMax, Random.Range(Bounds.yMin, Bounds.yMax), Bounds.zMin); 
+            pos = new Vector3(Bounds.xMax, Random.Range(Bounds.yMin, Bounds.yMax - 2), Bounds.zMin); 
         }
 
         return pos; 
