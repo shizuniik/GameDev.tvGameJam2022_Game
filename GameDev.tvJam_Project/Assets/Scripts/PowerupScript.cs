@@ -5,12 +5,8 @@ using UnityEngine;
 public class PowerupScript : MonoBehaviour
 {
     [SerializeField] int points;
-    [SerializeField] List<float> speedLevel; 
-
-    private void Start()
-    {
-        
-    }
+    [SerializeField] List<float> speedLevel;
+    [SerializeField] GameObject pointsText; 
 
     private void Update()
     {
@@ -32,8 +28,15 @@ public class PowerupScript : MonoBehaviour
     {
         if(other.CompareTag("Player") && !GameManager.GameEnded && !GameManager.GameOver)
         {
+            ShowPoints(); 
             GameManager.Instance.AddPoints(points); 
             Destroy(gameObject); 
         }
+    }
+
+    private void ShowPoints()
+    {
+        GameObject prefab = Instantiate(pointsText, transform.position, Quaternion.identity); 
+        prefab.GetComponent<TextMesh>().text = "+" + points;
     }
 }

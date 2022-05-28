@@ -65,45 +65,44 @@ public class SpawnManager : MonoBehaviour
                 InvokeRepeating("SpawnEnemies", enemyTime, enemySpawnRate * 0.2f);
                 break;
             default:
+                CancelSpawn();
                 break; 
         }
     }
 
     public void SpawnEnemies()
     {
-        GameObject enemy = listEnemies[Random.Range(0, listEnemies.Count)];
-        Instantiate(enemy, RandomSpawnPos(false), enemy.transform.rotation); 
+        int indx = (GameManager.Level < listEnemies.Count) ? GameManager.Level : listEnemies.Count;
+        GameObject enemy = listEnemies[Random.Range(0, indx)];
+        Instantiate(enemy, RandomSpawnPos(), enemy.transform.rotation); 
     }
 
     public void SpawnObstacles()
     {
-        GameObject obstacle = listObstacles[Random.Range(0, listObstacles.Count)];
-        Instantiate(obstacle, RandomSpawnPos(true), obstacle.transform.rotation);
+        int indx = (GameManager.Level < listObstacles.Count) ? GameManager.Level : listObstacles.Count;
+
+        // Bottom obstacle
+        GameObject obstacle = listObstacles[Random.Range(0, indx)];
+        Vector3 pos = RandomSpawnPos();
+        pos = new Vector3(pos.x, Bounds.yMin - 0.3f, pos.z); 
+        Instantiate(obstacle, pos, obstacle.transform.rotation);
+
+        // Top obstacle
+        pos = new Vector3(pos.x, Bounds.yMax + 0.2f, pos.z);
+        Quaternion rotation = Quaternion.Euler(180, obstacle.transform.rotation.y, obstacle.transform.rotation.z); 
+        Instantiate(obstacle, pos, rotation);
     }
 
     public void SpawnPowerups()
     {
-        GameObject powerup = listPowerups[Random.Range(0, listPowerups.Count)];
-        Instantiate(powerup, RandomSpawnPos(false), powerup.transform.rotation);
+        int indx = (GameManager.Level < listPowerups.Count) ? GameManager.Level : listPowerups.Count;
+        GameObject powerup = listPowerups[Random.Range(0, indx)];
+        Instantiate(powerup, RandomSpawnPos(), powerup.transform.rotation);
     }
 
-    private Vector3 RandomSpawnPos(bool fixedY)
+    private Vector3 RandomSpawnPos()
     {
-        Vector3 pos; 
-
-        if (fixedY)
-        {
-            int randomInt = Random.Range(0, 1);
-            float y = randomInt == 0 ? Bounds.yMin: Bounds.yMax;
-
-            pos = new Vector3(Bounds.xMax, y - 0.5f, Bounds.zMin); 
-        }
-        else
-        {
-            pos = new Vector3(Bounds.xMax, Random.Range(Bounds.yMin, Bounds.yMax - 2), Bounds.zMin); 
-        }
-
-        return pos; 
+        return new Vector3(Bounds.xMax, Random.Range(Bounds.yMin + 0.5f, Bounds.yMax - 7), Bounds.zMin); 
     }
 
 

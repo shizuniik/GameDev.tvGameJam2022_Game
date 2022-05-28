@@ -56,11 +56,13 @@ public class GameManager : MonoBehaviour
     {
         Score += points;
 
+        CheckGameOver();
+
         OnChangeScore?.Invoke();
 
-        CheckGameOver(); 
+        CheckWinGame();
+
         CheckLevel();
-        CheckWinGame(); 
     }
     
     private void CheckLevel()

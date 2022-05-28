@@ -7,6 +7,9 @@ public class EnemyScript : MonoBehaviour
 {
     [SerializeField] List<float> speedLevel;
     [SerializeField] int damage;
+    [SerializeField] GameObject damageText;
+
+    private bool collided = false; 
     private void Update()
     {
         Movement();
@@ -25,10 +28,17 @@ public class EnemyScript : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.transform.CompareTag("Player"))
+        if (collision.transform.CompareTag("Player") && !collided)
         {
-            Debug.Log("choca enemy");
+            ShowDamage();
             GameManager.Instance.AddPoints(-damage);
+            collided = true; 
         }
+    }
+
+    private void ShowDamage()
+    {
+        GameObject prefab = Instantiate(damageText, transform.position, Quaternion.identity);
+        prefab.GetComponent<TextMesh>().text = "-" + damage;
     }
 }

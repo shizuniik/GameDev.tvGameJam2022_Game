@@ -6,8 +6,12 @@ using TMPro;
 public class HUD : MonoBehaviour
 {
     [SerializeField] TextMeshProUGUI levelText;
-    [SerializeField] TextMeshProUGUI scoreText; 
-
+    [SerializeField] TextMeshProUGUI scoreText;
+    [SerializeField] TextMeshProUGUI instructionText; 
+    private void Start()
+    {
+        instructionText.enabled = !GameManager.GameStarted; 
+    }
     private void OnEnable()
     {
         GameManager.OnChangeScore += ScoreTextUpdate;
@@ -27,6 +31,8 @@ public class HUD : MonoBehaviour
 
     public void ScoreTextUpdate()
     {
+        instructionText.enabled = false; 
+
         scoreText.text = GameManager.Score.ToString();
     }
 
