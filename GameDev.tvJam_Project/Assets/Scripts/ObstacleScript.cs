@@ -37,7 +37,18 @@ public class ObstacleScript : MonoBehaviour
 
     private void ShowDamage()
     {
-        Vector3 pos = new Vector3(transform.position.x, transform.position.y + 0.5f, transform.position.z); 
+        Vector3 pos;
+
+        // Top obstacle 
+        if (transform.position.y > Bounds.yMax - 1f)
+        {
+            pos = new Vector3(transform.position.x, transform.position.y - 0.5f, transform.position.z);
+        }
+        // Bottom obstacle 
+        else
+        {   
+            pos = new Vector3(transform.position.x, transform.position.y + 0.5f, transform.position.z); 
+        }
         GameObject prefab = Instantiate(damageText, pos, Quaternion.identity);
         prefab.GetComponent<TextMesh>().text = "-" + damage;
     }
