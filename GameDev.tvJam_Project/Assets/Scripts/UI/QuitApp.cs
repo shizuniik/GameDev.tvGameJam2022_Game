@@ -10,6 +10,8 @@ public class QuitApp : MonoBehaviour
 {
     public void QuitGame()
     {
+        AudioManager.Instance.Play("ClickButton");
+
 #if UNITY_EDITOR
         EditorApplication.ExitPlaymode();
 #else

@@ -279,6 +279,93 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &844458360
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 844458362}
+  - component: {fileID: 844458361}
+  m_Layer: 0
+  m_Name: AudioManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &844458361
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 844458360}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ad894a0a522cde40bc7934dccbfa7da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundList:
+  - name: ClickButton
+    clip: {fileID: 8300000, guid: 1858c02edae4fb145b43f60aae4904f6, type: 3}
+    volume: 1
+    loop: 0
+    pitch: 1
+    source: {fileID: 0}
+  - name: PowerupSound
+    clip: {fileID: 8300000, guid: 90769e0fc1b992443a6c5d25d1d8ccab, type: 3}
+    volume: 0.3
+    loop: 0
+    pitch: 2
+    source: {fileID: 0}
+  - name: EnemySound
+    clip: {fileID: 8300000, guid: 8ba7ee4787b953947b4c2aa8736c944b, type: 3}
+    volume: 0.3
+    loop: 0
+    pitch: 1.5
+    source: {fileID: 0}
+  - name: ObstacleSound
+    clip: {fileID: 8300000, guid: 3fac7b8c867af7e45b52450c3e4f6e8e, type: 3}
+    volume: 0.4
+    loop: 0
+    pitch: 1
+    source: {fileID: 0}
+  - name: LevelChangeSound
+    clip: {fileID: 8300000, guid: da214d472039bdf41b6d02505ac914df, type: 3}
+    volume: 0.3
+    loop: 0
+    pitch: 1
+    source: {fileID: 0}
+  - name: WinSound
+    clip: {fileID: 8300000, guid: 7083a003073b56c4f90843dac28b0a44, type: 3}
+    volume: 0.3
+    loop: 0
+    pitch: 1
+    source: {fileID: 0}
+  - name: GameOverSound
+    clip: {fileID: 8300000, guid: e1ab23440550ac34a83331e6486ca55a, type: 3}
+    volume: 0.3
+    loop: 0
+    pitch: 1
+    source: {fileID: 0}
+--- !u!4 &844458362
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 844458360}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 244.97754, y: 139.40657, z: -2.086455}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!224 &1042604473 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 6988433082750990671, guid: adfcabcb947e4744bb8c0de2a1de480d,

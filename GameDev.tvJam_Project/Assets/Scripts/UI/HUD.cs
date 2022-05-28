@@ -7,7 +7,8 @@ public class HUD : MonoBehaviour
 {
     [SerializeField] TextMeshProUGUI levelText;
     [SerializeField] TextMeshProUGUI scoreText;
-    [SerializeField] TextMeshProUGUI instructionText; 
+    [SerializeField] TextMeshProUGUI instructionText;
+
     private void Start()
     {
         instructionText.enabled = !GameManager.GameStarted; 
@@ -38,6 +39,8 @@ public class HUD : MonoBehaviour
 
     public void PauseGame()
     {
+        AudioManager.Instance.Play("ClickButton");
+
         GameManager.GamePaused = !GameManager.GamePaused;
         Time.timeScale = GameManager.GamePaused ? 0 : 1; 
     }

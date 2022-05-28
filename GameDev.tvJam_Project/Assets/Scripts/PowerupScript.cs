@@ -20,7 +20,7 @@ public class PowerupScript : MonoBehaviour
 
     private void Movement()
     {
-        float speed = speedLevel[GameManager.Level - 1];
+        float speed = speedLevel[GameManager.Level - 1];//(GameManager.Level == speedLevel.Count) ? speedLevel[GameManager.Level - 1] : speedLevel[speedLevel.Count - 1];
         transform.Translate(Vector3.left * speed * Time.deltaTime);
     }
 
@@ -28,6 +28,7 @@ public class PowerupScript : MonoBehaviour
     {
         if(other.CompareTag("Player") && !GameManager.GameEnded && !GameManager.GameOver)
         {
+            AudioManager.Instance.Play("PowerupSound");
             ShowPoints(); 
             GameManager.Instance.AddPoints(points); 
             Destroy(gameObject); 
