@@ -67,8 +67,9 @@ public class GameManager : MonoBehaviour
     
     private void CheckLevel()
     {
-        if (Score > maxScoreLevel1 && Score <= maxScoreLevel2 && Level != 2||
-           Score > maxScoreLevel2 && Score <= maxScoreLevel3 && Level != 3)
+        if ((Score > maxScoreLevel1 && Score <= maxScoreLevel2 && Level != 2||
+           Score > maxScoreLevel2 && Score <= maxScoreLevel3) 
+           && !GameEnded && !GameOver && Level != 3)
         {
             AudioManager.Instance.Play("LevelChangeSound"); 
             Level += 1;

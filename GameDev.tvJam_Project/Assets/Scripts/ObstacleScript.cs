@@ -21,7 +21,16 @@ public class ObstacleScript : MonoBehaviour
 
     private void Movement()
     {
-        float speed = speedLevel[GameManager.Level - 1]; //(GameManager.Level == speedLevel.Count) ? speedLevel[GameManager.Level - 1] : speedLevel[speedLevel.Count -1];
+        float speed;  
+        if (GameManager.Level > speedLevel.Count)
+        {
+            speed = speedLevel[speedLevel.Count - 1];
+        }
+        else
+        {
+            speed = speedLevel[GameManager.Level - 1]; 
+        }
+        //speed = speedLevel[GameManager.Level - 1]; //(GameManager.Level == speedLevel.Count) ? speedLevel[GameManager.Level - 1] : speedLevel[speedLevel.Count -1];
         transform.Translate(Vector3.left * speed * Time.deltaTime);
     }
 
