@@ -80,7 +80,7 @@ MonoBehaviour:
   - 4
   - 6
   - 8
-  damage: 30
+  damage: 50
   damageText: {fileID: 3878556601583445477, guid: 499b35c1462ba84438578587df9a0329,
     type: 3}
 --- !u!1001 &1896947506256026271

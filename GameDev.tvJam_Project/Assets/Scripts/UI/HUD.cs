@@ -8,6 +8,7 @@ public class HUD : MonoBehaviour
     [SerializeField] TextMeshProUGUI levelText;
     [SerializeField] TextMeshProUGUI scoreText;
     [SerializeField] TextMeshProUGUI instructionText;
+    [SerializeField] TextMeshProUGUI levelChangeText; 
 
     private void Start()
     {
@@ -28,6 +29,10 @@ public class HUD : MonoBehaviour
     public void LevelTextUpdate()
     {
         levelText.text = GameManager.Level.ToString() + "/3";
+
+        //levelChangeText.text = "Level " + GameManager.Level.ToString();
+        //levelChangeText.enabled = true; 
+        //Invoke("ShowLevelChange", 1f); 
     }
 
     public void ScoreTextUpdate()
@@ -46,5 +51,10 @@ public class HUD : MonoBehaviour
 
         GameManager.GamePaused = !GameManager.GamePaused;
         Time.timeScale = GameManager.GamePaused ? 0 : 1; 
+    }
+
+    void ShowLevelChange()
+    {
+        levelChangeText.enabled = false; 
     }
 }
