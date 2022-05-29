@@ -1456,6 +1456,7 @@ MonoBehaviour:
   maxScoreLevel1: 15
   maxScoreLevel2: 185
   maxScoreLevel3: 300
+  scoreToEnd: 50
 --- !u!1001 &984671921
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1626,8 +1627,14 @@ MonoBehaviour:
   - {fileID: 7198842438319355509, guid: a65c654e0fdc81b4eb29d290be02d78c, type: 3}
   listEnemies:
   - {fileID: 553465600196248801, guid: 793909f01136ac248875538dad2bc431, type: 3}
+  - {fileID: 553465600196248801, guid: 0bbcc1767578d744b975be28905bbb1b, type: 3}
+  - {fileID: 553465600196248801, guid: 51f7dc49a83359d45ae1ab8d2cf18b30, type: 3}
   - {fileID: 553465600196248801, guid: 1bdc905b529aa7846a4cd181f752f0be, type: 3}
+  - {fileID: 553465600196248801, guid: 959e974083539884188035f1f604b388, type: 3}
+  - {fileID: 553465600196248801, guid: f0c49e1f4b9b2a84eb08952adb2b4b7d, type: 3}
   - {fileID: 553465600196248801, guid: fa864be2a9b2e9a41939e2dead0d00ce, type: 3}
+  - {fileID: 553465600196248801, guid: 1c51f7dc9c9b40a41a1109ac7e8c14a9, type: 3}
+  - {fileID: 553465600196248801, guid: a86fdb07c0af62e45b08ba9675c64000, type: 3}
   - {fileID: 553465600196248801, guid: d73fc13e7315b524f834c9840c55dddc, type: 3}
   listObstacles:
   - {fileID: 5405444967859697750, guid: 98e78b73c07bfee4098f16dc0fda4224, type: 3}

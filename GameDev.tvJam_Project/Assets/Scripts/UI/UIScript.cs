@@ -30,6 +30,7 @@ public class UIScript : MonoBehaviour
         GameManager.GameOver = false;
         GameManager.Score = 0;
         GameManager.Level = 1;
+        GameManager.NearMaxScore = false;
         GameManager.GameStarted = true;
         SpawnManager.Instance.ChangeSpawnRate(GameManager.Level); 
 

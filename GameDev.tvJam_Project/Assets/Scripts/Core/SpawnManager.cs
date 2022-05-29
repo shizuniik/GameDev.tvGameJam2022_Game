@@ -72,10 +72,11 @@ public class SpawnManager : MonoBehaviour
 
     public void SpawnEnemies()
     {
-        int indx = (GameManager.Level < listEnemies.Count) ? GameManager.Level : listEnemies.Count;
-        if(GameManager.Level == 3) { indx = 4; }
+        int indx = (GameManager.Level * 3 < listEnemies.Count) ? GameManager.Level * 3 : listEnemies.Count;
+        if(GameManager.Level == 3 && GameManager.NearMaxScore) { indx = listEnemies.Count; } 
         GameObject enemy = listEnemies[Random.Range(0, indx)];
-        Instantiate(enemy, RandomSpawnPos(), enemy.transform.rotation); 
+        Instantiate(enemy, RandomSpawnPos(), enemy.transform.rotation);
+        Debug.Log("level: " + GameManager.Level + " index: " + indx); 
     }
 
     public void SpawnObstacles()
@@ -103,7 +104,7 @@ public class SpawnManager : MonoBehaviour
 
     private Vector3 RandomSpawnPos()
     {
-        return new Vector3(Bounds.xMax, Random.Range(Bounds.yMin + 0.5f, Bounds.yMax - 1), Bounds.zMin); 
+        return new Vector3(Bounds.xMax, Random.Range(Bounds.yMin + 0.5f, Bounds.yMax - 1f), Bounds.zMin); 
     }
 
 

@@ -222,7 +222,7 @@ MonoBehaviour:
   soundList:
   - name: ClickButton
     clip: {fileID: 8300000, guid: 6b335dacc22b3ad4c80f72119a99b859, type: 3}
-    volume: 0.3
+    volume: 0.2
     loop: 0
     pitch: 1
     source: {fileID: 0}
@@ -234,13 +234,13 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: EnemySound
     clip: {fileID: 8300000, guid: 1e331077064163e409b1d0b98d2e06e8, type: 3}
-    volume: 0.5
+    volume: 0.6
     loop: 0
     pitch: 1
     source: {fileID: 0}
   - name: ObstacleSound
     clip: {fileID: 8300000, guid: 590d0f366fb7a5845b47f52c6e46d7a9, type: 3}
-    volume: 0.5
+    volume: 0.6
     loop: 0
     pitch: 1
     source: {fileID: 0}
@@ -264,7 +264,7 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: JumpSound
     clip: {fileID: 8300000, guid: 02134482c69f9b143900911855093413, type: 3}
-    volume: 0.25
+    volume: 0.2
     loop: 0
     pitch: 1
     source: {fileID: 0}

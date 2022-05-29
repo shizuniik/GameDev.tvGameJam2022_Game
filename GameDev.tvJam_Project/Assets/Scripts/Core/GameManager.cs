@@ -8,12 +8,13 @@ public class GameManager : MonoBehaviour
     [SerializeField] int maxScoreLevel1;
     [SerializeField] int maxScoreLevel2;
     [SerializeField] int maxScoreLevel3;
-
+    [SerializeField] int scoreToEnd; 
     public static int Score { get; set; }
     public static bool GameEnded;
     public static bool GameOver;
     public static bool GameStarted;
-    public static bool GamePaused; 
+    public static bool GamePaused;
+    public static bool NearMaxScore; 
 
     public static int Level { get; set; }
     public static GameManager Instance;
@@ -25,7 +26,8 @@ public class GameManager : MonoBehaviour
     private void Awake()
     {
         Level = 1;
-        Score = 0; 
+        Score = 0;
+        NearMaxScore = false; 
     }
 
     // Start is called before the first frame update
@@ -57,12 +59,21 @@ public class GameManager : MonoBehaviour
         Score += points;
 
         CheckGameOver();
+        CheckNearMaxScore(); 
 
         OnChangeScore?.Invoke();
 
         CheckWinGame();
 
         CheckLevel();
+    }
+
+    private void CheckNearMaxScore()
+    {
+        if(Score >= maxScoreLevel3 - scoreToEnd)
+        {
+            NearMaxScore = true; 
+        }
     }
     
     private void CheckLevel()
