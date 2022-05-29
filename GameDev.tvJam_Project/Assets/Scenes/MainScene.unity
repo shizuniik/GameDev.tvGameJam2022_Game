@@ -1453,8 +1453,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73c0c26061e7b7e4493b7c99cf2aac2b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxScoreLevel1: 15
-  maxScoreLevel2: 185
+  maxScoreLevel1: 10
+  maxScoreLevel2: 190
   maxScoreLevel3: 300
   scoreToEnd: 50
 --- !u!1001 &984671921

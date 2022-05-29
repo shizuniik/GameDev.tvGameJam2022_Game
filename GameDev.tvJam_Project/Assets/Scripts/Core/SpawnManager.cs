@@ -73,10 +73,18 @@ public class SpawnManager : MonoBehaviour
     public void SpawnEnemies()
     {
         int indx = (GameManager.Level * 3 < listEnemies.Count) ? GameManager.Level * 3 : listEnemies.Count;
-        if(GameManager.Level == 3 && GameManager.NearMaxScore) { indx = listEnemies.Count; } 
-        GameObject enemy = listEnemies[Random.Range(0, indx)];
+        GameObject enemy; 
+
+        if (GameManager.Level == 3 && GameManager.NearMaxScore)
+        {
+            indx = listEnemies.Count;
+            enemy = listEnemies[indx - 1];
+        }
+        else
+        {
+            enemy = listEnemies[Random.Range(0, indx)];
+        }
         Instantiate(enemy, RandomSpawnPos(), enemy.transform.rotation);
-        Debug.Log("level: " + GameManager.Level + " index: " + indx); 
     }
 
     public void SpawnObstacles()
