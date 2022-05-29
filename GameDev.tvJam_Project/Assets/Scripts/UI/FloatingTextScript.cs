@@ -10,4 +10,9 @@ public class FloatingTextScript : MonoBehaviour
     {
         Destroy(gameObject, destroyTime); 
     }
+
+    private void SetInactive()
+    {
+        gameObject.SetActive(false); 
+    }
 }

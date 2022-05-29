@@ -15,7 +15,9 @@ public class SpawnManager : MonoBehaviour
     [SerializeField] float obstacleTime;
     [SerializeField] float enemyTime;
 
-    public static SpawnManager Instance; 
+    public static SpawnManager Instance;
+
+    ObjectPoolManager objectPoolManager; 
 
     private void Start()
     {
@@ -30,6 +32,7 @@ public class SpawnManager : MonoBehaviour
         }
         DontDestroyOnLoad(gameObject);
 
+        objectPoolManager = ObjectPoolManager.Instance; 
         ChangeSpawnRate(GameManager.Level); 
     }
 
@@ -72,11 +75,21 @@ public class SpawnManager : MonoBehaviour
 
     public void SpawnEnemies()
     {
-        int indx = (GameManager.Level * 3 < listEnemies.Count) ? GameManager.Level * 3 : listEnemies.Count;
+        /* int indx = (GameManager.Level * 3 < listEnemies.Count) ? GameManager.Level * 3 : listEnemies.Count;
         if(GameManager.Level == 3 && GameManager.NearMaxScore) { indx = listEnemies.Count; } 
         GameObject enemy = listEnemies[Random.Range(0, indx)];
-        Instantiate(enemy, RandomSpawnPos(), enemy.transform.rotation);
-        Debug.Log("level: " + GameManager.Level + " index: " + indx); 
+        Instantiate(enemy, RandomSpawnPos(), enemy.transform.rotation);*/
+
+        // Object pooling 
+        string enemyString;
+        int indx = GameManager.Level * 3;
+        enemyString = "Enemy" + Random.Range(0, indx).ToString();
+
+        if (GameManager.Level == 3 && GameManager.NearMaxScore) 
+        {
+            enemyString = "Enemy" + 9.ToString();
+        }
+        objectPoolManager.SpawnFromPool(enemyString, RandomSpawnPos(), Quaternion.identity, true);
     }
 
     public void SpawnObstacles()

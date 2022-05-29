@@ -70,10 +70,7 @@ public class GameManager : MonoBehaviour
 
     private void CheckNearMaxScore()
     {
-        if(Score >= maxScoreLevel3 - scoreToEnd)
-        {
-            NearMaxScore = true; 
-        }
+        NearMaxScore = Score >= maxScoreLevel3 - scoreToEnd;
     }
     
     private void CheckLevel()

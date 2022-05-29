@@ -16,7 +16,8 @@ public class EnemyScript : MonoBehaviour
 
         if (transform.position.x < Bounds.xMin)
         {
-            Destroy(gameObject);
+            //Destroy(gameObject);
+            gameObject.SetActive(false);
         }
     }
 
