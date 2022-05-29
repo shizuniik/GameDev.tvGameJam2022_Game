@@ -24,7 +24,9 @@ public class PlayerController : MonoBehaviour
     {
         if(Input.GetButtonDown("Fire1") || Input.GetButtonDown("Jump"))
         {
+            AudioManager.Instance.Play("JumpSound"); 
             playerRb.AddForce(Vector3.up * force, ForceMode.Impulse);
+            AudioManager.Instance.Stop("JumpSound");
         }
     }
 

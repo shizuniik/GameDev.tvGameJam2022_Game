@@ -7,12 +7,15 @@ public class UIScript : MonoBehaviour
 {
     public void StartGame()
     {
+        AudioManager.Instance.Play("ClickButton");
+        GameManager.Level = 1;
         GameManager.GameStarted = false; 
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1); 
     }
 
     public void PlayAgain()
     {
+        AudioManager.Instance.Play("ClickButton");
         GameManager.GameEnded = false;
         GameManager.GameOver = false;
         GameManager.Score = 0;
