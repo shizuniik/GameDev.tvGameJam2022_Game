@@ -26,7 +26,6 @@ public class PlayerController : MonoBehaviour
         {
             AudioManager.Instance.Play("JumpSound"); 
             playerRb.AddForce(Vector3.up * force, ForceMode.Impulse);
-            AudioManager.Instance.Stop("JumpSound");
         }
     }
 

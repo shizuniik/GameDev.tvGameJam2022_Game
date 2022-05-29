@@ -39,7 +39,10 @@ public class HUD : MonoBehaviour
 
     public void PauseGame()
     {
-        AudioManager.Instance.Play("ClickButton");
+        if(!GameManager.GamePaused) 
+            AudioManager.Instance.Play("PauseIn");
+        else
+            AudioManager.Instance.Play("PauseOut");
 
         GameManager.GamePaused = !GameManager.GamePaused;
         Time.timeScale = GameManager.GamePaused ? 0 : 1; 

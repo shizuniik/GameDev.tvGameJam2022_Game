@@ -16,6 +16,16 @@ public class UIScript : MonoBehaviour
     public void PlayAgain()
     {
         AudioManager.Instance.Play("ClickButton");
+        if (GameManager.GameEnded)
+        {
+            AudioManager.Instance.Stop("CreditsSong");
+            AudioManager.Instance.Play("ThemeSong");
+        }
+        else
+        {
+            AudioManager.Instance.Stop("GameOverSound");
+            AudioManager.Instance.Play("ThemeSong");
+        }
         GameManager.GameEnded = false;
         GameManager.GameOver = false;
         GameManager.Score = 0;

@@ -94,13 +94,16 @@ public class GameManager : MonoBehaviour
             AudioManager.Instance.Play("WinSound"); 
             GameEnded = true;
             SpawnManager.Instance.CancelSpawn(); 
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 2); 
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 2);
+            AudioManager.Instance.Stop("ThemeSong");
+            AudioManager.Instance.Play("CreditsSong"); 
             Debug.Log("WinGame"); 
         }
     }
 
     public void GameOverScene()
     {
+        AudioManager.Instance.Stop("ThemeSong");
         AudioManager.Instance.Play("GameOverSound");
         Debug.Log("GameOver");
         GameOver = true;
