@@ -61,6 +61,7 @@ public class ObjectPoolManager : MonoBehaviour
         }
         Debug.Log("tag + count: " + tag + " - " + poolDic[tag].Count); 
         GameObject obj = poolDic[tag].Dequeue();
+        if (obj == null) Debug.Log("obj es nulo" + poolDic[tag].Count); 
         obj.SetActive(true);
         obj.transform.position = position;
         if (!origRotation) { obj.transform.rotation = rotation; }
