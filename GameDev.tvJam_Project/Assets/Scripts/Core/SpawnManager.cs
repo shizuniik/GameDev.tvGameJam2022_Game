@@ -85,6 +85,19 @@ public class SpawnManager : MonoBehaviour
             enemy = listEnemies[Random.Range(0, indx)];
         }
         Instantiate(enemy, RandomSpawnPos(), enemy.transform.rotation);
+
+        // Object pooling 
+        /* 
+        string enemyString;
+        int indx = GameManager.Level * 3;
+        enemyString = "Enemy" + Random.Range(0, indx).ToString();
+
+        if (GameManager.Level == 3 && GameManager.NearMaxScore)
+        {
+            enemyString = "Enemy" + 9.ToString();
+        }
+        objectPoolManager.SpawnFromPool(enemyString, RandomSpawnPos(), Quaternion.identity, true);
+        */
     }
 
     public void SpawnObstacles()
