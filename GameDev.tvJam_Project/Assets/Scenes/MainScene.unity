@@ -1641,7 +1641,7 @@ MonoBehaviour:
   - {fileID: 5405444967859697750, guid: 220251252f7f87e4bb57113a4f1a168a, type: 3}
   - {fileID: 5405444967859697750, guid: 58dba3a599976f24fb3a9663de20aae9, type: 3}
   powerupSpawnRate: 2
-  obstacleSpawnRate: 3
+  obstacleSpawnRate: 3.5
   enemySpawnRate: 5
   powerupTime: 0
   obstacleTime: 1

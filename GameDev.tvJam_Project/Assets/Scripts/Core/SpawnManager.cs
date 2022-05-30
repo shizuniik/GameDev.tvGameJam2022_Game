@@ -78,7 +78,7 @@ public class SpawnManager : MonoBehaviour
         if (GameManager.Level == 3 && GameManager.NearMaxScore)
         {
             indx = listEnemies.Count;
-            enemy = listEnemies[indx - 1];
+            enemy = listEnemies[indx -1];
         }
         else
         {
