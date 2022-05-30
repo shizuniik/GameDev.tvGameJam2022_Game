@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] int maxScoreLevel3;
     [SerializeField] int scoreToEnd; 
     public static int Score { get; set; }
+    public static string ScoreMaxScore { get; set; }
     public static bool GameEnded;
     public static bool GameOver;
     public static bool GameStarted;
@@ -27,7 +28,8 @@ public class GameManager : MonoBehaviour
     {
         Level = 1;
         Score = 0;
-        NearMaxScore = false; 
+        NearMaxScore = false;
+        ScoreMaxScore = Score + "/" + maxScoreLevel1; 
     }
 
     // Start is called before the first frame update
@@ -57,15 +59,31 @@ public class GameManager : MonoBehaviour
     public void AddPoints(int points)
     {
         Score += points;
-
         CheckGameOver();
-        CheckNearMaxScore(); 
+        CheckNearMaxScore();
+        CheckScoreMaxScore(); 
 
         OnChangeScore?.Invoke();
 
         CheckWinGame();
 
         CheckLevel();
+    }
+
+    private void CheckScoreMaxScore()
+    {
+        switch(Level)
+        {
+            case 1:
+                ScoreMaxScore = Score + "/" + maxScoreLevel1;
+                break;
+            case 2:
+                ScoreMaxScore = Score + "/" + maxScoreLevel2;
+                break;
+            default:
+                ScoreMaxScore = Score + "/" + maxScoreLevel3;
+                break; 
+        }
     }
 
     private void CheckNearMaxScore()
@@ -81,6 +99,7 @@ public class GameManager : MonoBehaviour
         {
             AudioManager.Instance.Play("LevelChangeSound"); 
             Level += 1;
+            CheckScoreMaxScore();
             OnChangeLevel?.Invoke();
 
             SpawnManager.Instance.ChangeSpawnRate(Level); 

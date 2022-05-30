@@ -39,7 +39,8 @@ public class HUD : MonoBehaviour
     {
         instructionText.enabled = false; 
 
-        scoreText.text = GameManager.Score.ToString();
+        //scoreText.text = GameManager.Score.ToString();
+        scoreText.text = GameManager.ScoreMaxScore;
     }
 
     public void PauseGame()
@@ -55,6 +56,6 @@ public class HUD : MonoBehaviour
 
     void ShowLevelChange()
     {
-        levelChangeText.enabled = false; 
+        levelChangeText.enabled = false;
     }
 }
