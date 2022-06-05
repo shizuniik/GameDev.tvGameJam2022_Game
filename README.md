@@ -8,8 +8,9 @@ Theme: Death is only the beginning!
  - 3D Models were created with Unity ProBuilder. 
  - Animations were created with Unity. 
 
--Credits: 
- - Design, programming and art by shizuniik. 
+-Credits: Design, programming and art by shizuniik. 
+
+-Free assets: 
  - Background texture by [Kenney](https://kenney.nl/assets/voxel-pack)
  - SFX by [SubspaceAudio](https://opengameart.org/content/512-sound-effects-8-bit-style) 
  - Music by [Fupi](https://opengameart.org/content/fun-bass-loop), 
